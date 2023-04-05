@@ -2,7 +2,6 @@ import { Text, TouchableOpacity, SafeAreaView, View } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 
 import styles from './home.style';
-import { COLORS } from '../../constants/theme';
 
 const Home = () => {
     const router = useRouter();
@@ -10,7 +9,7 @@ const Home = () => {
         <SafeAreaView style={styles.container}>
             <Stack.Screen
                 options={{
-                    headerStyle: { backgroundColor: COLORS.lightWhite },
+                    headerStyle: { backgroundColor: 'lightWhite' },
                     headerShadowVisible: false,
                     headerTitle: ""
                 }}

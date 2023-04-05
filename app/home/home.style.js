@@ -1,10 +1,9 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from '../../constants/theme';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1, 
-        backgroundColor: COLORS.lightWhite, 
+        backgroundColor: 'lightWhite', 
         justifyContent: 'center'
     },
     titleContainer: {
@@ -14,7 +13,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     homeTitle: {
-        fontWeight: 'bold'
+        fontWeight: 500,
+        fontSize: 32,
+        padding: 40
     },
     homeBtn: {
         width: "40%",
