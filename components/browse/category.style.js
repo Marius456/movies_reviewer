@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
   
   headerTitle: {
     fontSize: 20,
-    // fontFamily: "DMMedium",
     color: "#312651",
   },
 });

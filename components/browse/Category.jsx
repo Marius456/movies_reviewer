@@ -2,18 +2,23 @@ import React, { useState } from "react"
 import { View, Text, FlatList, ActivityIndicator } from "react-native"
 import { useRouter } from "expo-router"
 import styles from "./category.style"
+import useFetch from "../../hooks/useFetch"
 
 import MovieCard from "../../components/common/cards/MovieCard"
 
-const Category = () => {
+const Category = ({item}) => {
     const router = useRouter()
-    const isLoading = false
-    const error = false
+    const {data, isLoading, error} = useFetch("discover/movie", {
+        api_key: "8e325dd835257b2af80167acb9002318",
+        language: 'en-US',
+        page: 1,
+        with_genres: item.id
+      });
 
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerTitle}>Category Title</Text>
+                <Text style={styles.headerTitle}>{item?.name}</Text>
             </View>
             <View style={styles.cardsContainer}>
                 {isLoading ? (
@@ -22,13 +27,13 @@ const Category = () => {
                     <Text>Something went wrong</Text>
                 ) : (
                     <FlatList
-                        data={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
+                        data={data.results}
                         renderItem={({ item }) => (
                             <MovieCard
                                 item={item}
                             />
                         )}
-                        // keyExtractor={item => item?.id}
+                        keyExtractor={item => item?.id}
                         contentContainerStyle={{ columnGap: 16 }}
                         horizontal
                     />
