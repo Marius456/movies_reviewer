@@ -17,7 +17,10 @@ const Home = () => {
             <View style={styles.titleContainer}>
                 <Text style={styles.homeTitle}>Flexn Presents</Text>
             </View>
-            <TouchableOpacity style={styles.homeBtn}>
+            <TouchableOpacity
+                style={styles.homeBtn}
+                onPress={() => router.push(`/browse/browse`)}
+            >
                 <Text style={styles.homeBtnText}>Browse</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.homeBtn}>
