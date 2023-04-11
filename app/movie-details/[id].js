@@ -35,7 +35,7 @@ const MovieDetails = () => {
             </View>
             <TouchableOpacity
                 style={styles.btn}
-                onPress={() => router.push(`/browse/browse`)}>
+                onPress={() => router.push(`/video-player/${data.id}`)}                >
                 <Text style={styles.btnText}>Play Movie</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.btn}>

@@ -18,7 +18,6 @@ const Category = ({ item }) => {
     const [selectedMovie, setSelectedMovie] = useState();
 
     const handleCardPress = (item) => {
-        console.log(item.id)
         router.push(`/movie-details/${item.id}`);
         setSelectedMovie(item.id);
     };
