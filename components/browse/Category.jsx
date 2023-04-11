@@ -6,14 +6,22 @@ import useFetch from "../../hooks/useFetch"
 
 import MovieCard from "../../components/common/cards/MovieCard"
 
-const Category = ({item}) => {
+const Category = ({ item }) => {
     const router = useRouter()
-    const {data, isLoading, error} = useFetch("discover/movie", {
+    const { data, isLoading, error } = useFetch("discover/movie", {
         api_key: "8e325dd835257b2af80167acb9002318",
         language: 'en-US',
         page: 1,
         with_genres: item.id
-      });
+    });
+
+    const [selectedMovie, setSelectedMovie] = useState();
+
+    const handleCardPress = (item) => {
+        console.log(item.id)
+        router.push(`/movie-details/${item.id}`);
+        setSelectedMovie(item.id);
+    };
 
     return (
         <View style={styles.container}>
@@ -31,6 +39,8 @@ const Category = ({item}) => {
                         renderItem={({ item }) => (
                             <MovieCard
                                 item={item}
+                                selectedMovie={selectedMovie}
+                                handleCardPress={handleCardPress}
                             />
                         )}
                         keyExtractor={item => item?.id}
