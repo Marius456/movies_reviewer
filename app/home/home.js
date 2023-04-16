@@ -11,6 +11,7 @@ const Home = () => {
                 options={{
                     headerStyle: { backgroundColor: 'lightWhite' },
                     headerShadowVisible: false,
+                    headerBackVisible: false,
                     headerTitle: ""
                 }}
             />

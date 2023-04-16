@@ -24,12 +24,6 @@ const MovieDetails = () => {
     return (
         <SafeAreaView style={styles.container}>
             <Stack.Screen
-                // options={{
-                //     headerStyle: { backgroundColor: 'lightgray' },
-                //     headerShadowVisible: false,
-                //     headerTitle: data?.title,
-                //     headerTitleAlign: 'center'
-                // }}
                 options={{
                     headerStyle: { backgroundColor: 'lightWhite' },
                     headerShadowVisible: false,
@@ -38,7 +32,7 @@ const MovieDetails = () => {
                         <ScreenHeaderBtn
                             iconUrl={left}
                             dimension='60%'
-                            handlePress={() => router.back()}
+                            handlePress={() => router.push(`/browse/browse`)}
                         />
                     ),
                     headerTitle: data?.title,
