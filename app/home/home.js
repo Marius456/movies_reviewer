@@ -24,7 +24,9 @@ const Home = () => {
             >
                 <Text style={styles.homeBtnText}>Browse</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.homeBtn}>
+            <TouchableOpacity style={styles.homeBtn}
+                onPress={() => router.push(`/notfound/notfound`)}
+                >
                 <Text style={styles.homeBtnText}>Login</Text>
             </TouchableOpacity>
         </SafeAreaView>
