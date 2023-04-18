@@ -29,8 +29,6 @@ const Browse = () => {
                     headerTitle: "Home",
                 }}
             />
-
-
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.cardsContainer}>
                     {isLoading ? (
