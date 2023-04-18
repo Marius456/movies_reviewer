@@ -24,6 +24,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#DDDDDD',
         padding: 10,
         textAlign: 'center',
+        borderRadius: 16,
+        marginBottom: 10
     },
     homeBtnText: {
         color: 'blue',
