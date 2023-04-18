@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 // import { MOVIEDB_API_KEY } from '@env';
 
 const useFetch = (endpoint, query) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [fetchError, setFetchError] = useState(null);
 
   const options = {
     method: 'GET',
     url: `https://api.themoviedb.org/3/${endpoint}`,
-    params: { ...query }
-  }
+    params: { ...query },
+  };
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -22,8 +22,7 @@ const useFetch = (endpoint, query) => {
       setData(response.data);
       setIsLoading(false);
     } catch (error) {
-      setError(error);
-      console.log(error)
+      setFetchError(error);
     } finally {
       setIsLoading(false);
     }
@@ -38,7 +37,9 @@ const useFetch = (endpoint, query) => {
     fetchData();
   };
 
-  return { data, isLoading, error, refetch };
+  return {
+    data, isLoading, fetchError, refetch,
+  };
 };
 
 export default useFetch;
