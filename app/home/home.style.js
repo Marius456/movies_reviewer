@@ -23,12 +23,11 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         backgroundColor: '#DDDDDD',
         padding: 10,
-        textAlign: 'center',
-        borderRadius: 16,
         marginBottom: 10
     },
     homeBtnText: {
         color: 'blue',
+        alignSelf: 'center',
         fontWeight: 'bold'
     }
 });
