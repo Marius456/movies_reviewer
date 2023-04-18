@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, Text, FlatList, ActivityIndicator } from "react-native"
+import { View, Text, FlatList, ActivityIndicator, TouchableOpacity } from "react-native"
 import { useRouter } from "expo-router"
 import styles from "./category.style"
 import useFetch from "../../hooks/useFetch"
@@ -16,6 +16,7 @@ const Category = ({ item }) => {
     });
 
     const [selectedMovie, setSelectedMovie] = useState();
+    const [isShowing, setIsShowing] = useState(false);
 
     const handleCardPress = (item) => {
         router.push(`/movie-details/${item.id}`);
@@ -26,6 +27,12 @@ const Category = ({ item }) => {
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.headerTitle}>{item?.name}</Text>
+                <TouchableOpacity
+                    onPress={() => setIsShowing(!isShowing)}>
+                    {isShowing ?
+                        <Text style={styles.headerBtn}>Hide </Text>
+                        : <Text style={styles.headerBtn}>Show </Text>}
+                </TouchableOpacity>
             </View>
             <View style={styles.cardsContainer}>
                 {isLoading ? (
@@ -33,19 +40,22 @@ const Category = ({ item }) => {
                 ) : error ? (
                     <Text>Something went wrong</Text>
                 ) : (
-                    <FlatList
-                        data={data.results}
-                        renderItem={({ item }) => (
-                            <MovieCard
-                                item={item}
-                                selectedMovie={selectedMovie}
-                                handleCardPress={handleCardPress}
-                            />
-                        )}
-                        keyExtractor={item => item?.id}
-                        contentContainerStyle={{ columnGap: 16 }}
-                        horizontal
-                    />
+                    isShowing ?
+                        <FlatList
+                            data={data.results}
+                            renderItem={({ item }) => (
+                                <MovieCard
+                                    item={item}
+                                    selectedMovie={selectedMovie}
+                                    handleCardPress={handleCardPress}
+                                />
+                            )}
+                            keyExtractor={item => item?.id}
+                            contentContainerStyle={{ columnGap: 16 }}
+                            horizontal
+                        />
+                        :
+                        null
                 )}
             </View>
         </View>

@@ -14,6 +14,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#312651",
   },
+  headerBtn: {
+    fontSize: 16,
+    color: "gray",
+  },
 });
 
 export default styles;

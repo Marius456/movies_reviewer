@@ -1,11 +1,13 @@
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import { ActivityIndicator, FlatList, SafeAreaView, ScrollView, Text, View } from "react-native"
-import { Category } from "../../components"
+import { Category, ScreenHeaderBtn } from "../../components"
 import useFetch from "../../hooks/useFetch";
+import left from "../../assets/icons/left.png"
 
 import styles from './browse.style';
 
 const Browse = () => {
+    const router = useRouter();
     const { data, isLoading, error } = useFetch("genre/movie/list", {
         api_key: "8e325dd835257b2af80167acb9002318",
         language: 'en-US'
@@ -16,8 +18,15 @@ const Browse = () => {
                 options={{
                     headerStyle: { backgroundColor: 'lightgray' },
                     headerShadowVisible: false,
+                    headerBackVisible: false,
+                    headerLeft: () => (
+                        <ScreenHeaderBtn
+                            iconUrl={left}
+                            dimension='60%'
+                            handlePress={() => router.push(`/home/home`)}
+                        />
+                    ),
                     headerTitle: "Home",
-                    headerTitleAlign: 'center'
                 }}
             />
 

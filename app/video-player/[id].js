@@ -6,7 +6,6 @@ import styles from "./videoplayer.style";
 
 const VideoPlayerPage = () => {
     const params = useSearchParams();
-    const router = useRouter();
     let trailer = null
 
     const { data, isLoading, error, refetch } = useFetch(`movie/${params.id}/videos`, {
