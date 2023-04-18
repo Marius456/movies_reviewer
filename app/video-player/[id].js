@@ -1,12 +1,11 @@
 import { Stack, useRouter, useSearchParams } from "expo-router";
 import { SafeAreaView, View } from "react-native";
-// import YoutubePlayer from "react-native-youtube-iframe";
+import YoutubePlayer from "react-native-youtube-iframe";
 import useFetch from "../../hooks/useFetch";
 import styles from "./videoplayer.style";
 
 const VideoPlayerPage = () => {
     const params = useSearchParams();
-    const router = useRouter();
     let trailer = null
 
     const { data, isLoading, error, refetch } = useFetch(`movie/${params.id}/videos`, {
@@ -28,11 +27,11 @@ const VideoPlayerPage = () => {
             />
 
             <View>
-                {/* <YoutubePlayer
+                <YoutubePlayer
                     height={300}
                     play={false}
                     videoId={trailer}
-                /> */}
+                />
             </View>
         </SafeAreaView>
     )
