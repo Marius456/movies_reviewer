@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stack, useSearchParams } from 'expo-router';
 import { ActivityIndicator, SafeAreaView, View } from 'react-native';
-// import YoutubePlayer from "react-native-youtube-iframe";
+import YoutubePlayer from 'react-native-youtube-iframe';
 import useFetch from '../../hooks/useFetch';
 import styles from './videoplayer.style';
 
@@ -33,12 +33,11 @@ function VideoPlayerPage() {
         ) : error ? (
           <Text>{error.message}</Text>
         ) : (
-          <Text>OK</Text>
-        // <YoutubePlayer
-        //     height={300}
-        //     play={false}
-        //     videoId={trailer}
-        // />
+          <YoutubePlayer
+            height={300}
+            play={false}
+            videoId={trailer}
+          />
         )}
       </View>
     </SafeAreaView>
