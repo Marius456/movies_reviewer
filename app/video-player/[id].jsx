@@ -1,3 +1,4 @@
+import React from 'react';
 import { Stack, useSearchParams } from 'expo-router';
 import { ActivityIndicator, SafeAreaView, View } from 'react-native';
 // import YoutubePlayer from "react-native-youtube-iframe";
@@ -9,7 +10,7 @@ function VideoPlayerPage() {
   let trailer = null;
 
   const {
-    data, isLoading, error, refetch,
+    data, isLoading, error,
   } = useFetch(`movie/${params.id}/videos`, {
     api_key: '8e325dd835257b2af80167acb9002318',
   });
@@ -30,7 +31,7 @@ function VideoPlayerPage() {
         {isLoading ? (
           <ActivityIndicator size="large" color="gray" />
         ) : error ? (
-          <Text>Something went wrong</Text>
+          <Text>{error.message}</Text>
         ) : (
           <Text>OK</Text>
         // <YoutubePlayer

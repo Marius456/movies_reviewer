@@ -1,8 +1,8 @@
 import { Stack, useRouter, useSearchParams } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { React, useCallback, useState } from 'react';
 import {
-  ActivityIndicator, FlatList, Image, RefreshControl, SafeAreaView, ScrollView, Text, TouchableOpacity,
-  View,
+  ActivityIndicator, FlatList, Image, RefreshControl,
+  SafeAreaView, ScrollView, Text, TouchableOpacity, View,
 } from 'react-native';
 
 import { Category, ScreenHeaderBtn } from '../../components';
@@ -48,7 +48,7 @@ function MovieDetails() {
         showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-}
+        }
       >
         <View style={styles.cardsContainer}>
           {isLoading ? (
@@ -78,11 +78,11 @@ function MovieDetails() {
                 <Text style={styles.btnText}>Add to Library</Text>
               </TouchableOpacity>
               <FlatList
-                data={[data.genres[0]]}
+                data={[data?.genres[0]]}
                 renderItem={({ item }) => (
                   <Category
-                      item={item}
-                    />
+                    item={item}
+                  />
                 )}
                 keyExtractor={(item) => item?.id}
                 contentContainerStyle={{ columnGap: 16 }}

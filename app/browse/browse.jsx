@@ -1,3 +1,4 @@
+import React from 'react';
 import { Stack, useRouter } from 'expo-router';
 import {
   ActivityIndicator, FlatList, SafeAreaView, ScrollView, Text, View,
